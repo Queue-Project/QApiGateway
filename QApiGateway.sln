@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QApiGateway", "QApiGateway\QApiGateway.csproj", "{B1189649-F79E-41EF-AFC4-CBBFA3BBDCBF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QApiGateway.UnitTest", "QApiGateway.UnitTest", "{7EC5A0C8-4841-470F-BD9C-AA87DBF632C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QApiGateway.UnitTest", "QApiGateway.UnitTest\QApiGateway.UnitTest.csproj", "{7534F20F-DEB9-4469-B6E5-461526FFBAFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,12 @@ Global
 		{B1189649-F79E-41EF-AFC4-CBBFA3BBDCBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1189649-F79E-41EF-AFC4-CBBFA3BBDCBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1189649-F79E-41EF-AFC4-CBBFA3BBDCBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7534F20F-DEB9-4469-B6E5-461526FFBAFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7534F20F-DEB9-4469-B6E5-461526FFBAFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7534F20F-DEB9-4469-B6E5-461526FFBAFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7534F20F-DEB9-4469-B6E5-461526FFBAFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7534F20F-DEB9-4469-B6E5-461526FFBAFF} = {7EC5A0C8-4841-470F-BD9C-AA87DBF632C5}
 	EndGlobalSection
 EndGlobal
