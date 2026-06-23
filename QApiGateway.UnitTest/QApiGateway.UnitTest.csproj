@@ -26,4 +26,8 @@
       <ProjectReference Include="..\QApiGateway\QApiGateway.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="EndpointTests\CustomerEndpointTests\" />
+    </ItemGroup>
+
 </Project>
