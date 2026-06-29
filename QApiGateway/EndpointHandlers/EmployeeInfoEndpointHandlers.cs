@@ -17,7 +17,7 @@ public class EmployeeInfoEndpointHandlers
                     $"&pageNumber={pageNumber}";
 
         var request = new HttpRequestMessage(HttpMethod.Get,
-            $"http://localhost:5004/api/Employee/get-branch-employees{query}");
+            $"http://user-service:5004/api/Employee/get-branch-employees{query}");
 
         request.Headers.Add("Authorization", token);
 
@@ -40,7 +40,7 @@ public class EmployeeInfoEndpointHandlers
                     $"&pageNumber={pageNumber}";
 
         var request = new HttpRequestMessage(HttpMethod.Get,
-            $"http://localhost:5004/api/Employee/get-service-employees{query}");
+            $"http://user-service:5004/api/Employee/get-service-employees{query}");
 
         request.Headers.Add("Authorization", token);
 
