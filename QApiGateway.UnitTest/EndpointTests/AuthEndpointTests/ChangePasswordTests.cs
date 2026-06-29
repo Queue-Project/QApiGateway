@@ -75,6 +75,7 @@ public class ChangePasswordTests
     public async Task ChangePassword_Should_Return_Error_When_OldPassword_Not_Found()
     {
         // Arrange
+        
         var request = new UpdatePasswordRequest
         {
             OldPassword = "TestOldPassword.1234",
