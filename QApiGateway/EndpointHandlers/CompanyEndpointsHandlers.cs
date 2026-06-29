@@ -9,7 +9,7 @@ public class CompanyEndpointsHandlers
     {
         var token = httpRequest.Headers["Authorization"].ToString();
         var request = new HttpRequestMessage(HttpMethod.Get,
-            $"http://localhost:5002/api/Company/get-all-companies?pageNumber={pageNumber}");
+            $"http://branch-service:5002/api/Company/get-all-companies?pageNumber={pageNumber}");
         request.Headers.Add("Authorization", token);
 
         var response = await client.SendAsync(request);
@@ -22,7 +22,7 @@ public class CompanyEndpointsHandlers
     {
         var token = httpRequest.Headers["Authorization"].ToString();
         var request = new HttpRequestMessage(HttpMethod.Get,
-            $"http://localhost:5002/api/Company/company-info-by-id/{id}");
+            $"http://branch-service:5002/api/Company/company-info-by-id/{id}");
         request.Headers.Add("Authorization", token);
 
         var response = await client.SendAsync(request);

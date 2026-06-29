@@ -10,7 +10,7 @@ public class AuthEndpointHandlers
         LoginRequest loginRequest)
     {
         var response = await client.PostAsJsonAsync(
-            "http://localhost:5004/api/Auth/login",
+            "http://user-service:5004/api/Auth/login",
             loginRequest
         );
         var content = await response.Content.ReadAsStringAsync();
@@ -20,7 +20,7 @@ public class AuthEndpointHandlers
     public static async Task<IResult> RegisterHandler(HttpClient client, RegisterRequest request)
     {
         var response = await client.PostAsJsonAsync(
-            "http://localhost:5004/api/Auth/register", request);
+            "http://user-service:5004/api/Auth/register", request);
 
         var content = await response.Content.ReadAsStringAsync();
         return Results.Content(content, "application/json", Encoding.UTF8, (int)response.StatusCode);
@@ -29,7 +29,7 @@ public class AuthEndpointHandlers
     public static async Task<IResult> LogoutHandler(HttpClient client, HttpRequest httpRequest, string refreshToken)
     {
         var token = httpRequest.Headers["Authorization"].ToString();
-        var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5004/api/Auth/logout");
+        var request = new HttpRequestMessage(HttpMethod.Post, "http://user-service:5004/api/Auth/logout");
         request.Headers.Add("Authorization", token);
         request.Content = new StringContent(JsonSerializer.Serialize(refreshToken), Encoding.UTF8,
             "application/json");
@@ -42,7 +42,7 @@ public class AuthEndpointHandlers
     public static async Task<IResult> VerifyEmailHandler(HttpClient client, VerifyEmailRequest request)
     {
         var response = await client.PostAsJsonAsync(
-            "http://localhost:5004/api/Auth/verify-email", request);
+            "http://user-service:5004/api/Auth/verify-email", request);
 
         var content = await response.Content.ReadAsStringAsync();
         return Results.Content(content, "application/json", Encoding.UTF8, (int)response.StatusCode);
@@ -51,7 +51,7 @@ public class AuthEndpointHandlers
     public static async Task<IResult> ResendCodeHandler(HttpClient client, ResendCodeRequest request)
     {
         var response = await client.PostAsJsonAsync(
-            "http://localhost:5004/api/Auth/resend-code", request);
+            "http://user-service:5004/api/Auth/resend-code", request);
 
         var content = await response.Content.ReadAsStringAsync();
         return Results.Content(content, "application/json", Encoding.UTF8, (int)response.StatusCode);
@@ -62,7 +62,7 @@ public class AuthEndpointHandlers
     {
         var token = httpRequest.Headers["Authorization"].ToString();
         var request = new HttpRequestMessage(HttpMethod.Put,
-            "http://localhost:5004/api/Auth/change-password");
+            "http://user-service:5004/api/Auth/change-password");
         request.Headers.Add("Authorization", token);
         request.Content = new StringContent(JsonSerializer.Serialize(updatePasswordRequest), Encoding.UTF8,
             "application/json");
@@ -76,7 +76,7 @@ public class AuthEndpointHandlers
         ForgotPasswordRequest request)
     {
         var response = await client.PostAsJsonAsync(
-            "http://localhost:5004/api/Auth/forgot-password", request);
+            "http://user-service:5004/api/Auth/forgot-password", request);
 
         var content = await response.Content.ReadAsStringAsync();
         return Results.Content(content, "application/json", Encoding.UTF8, (int)response.StatusCode);
@@ -85,7 +85,7 @@ public class AuthEndpointHandlers
     public static async Task<IResult> ResetPasswordHandler(HttpClient client, ResetPasswordRequest request)
     {
         var response = await client.PostAsJsonAsync(
-            "http://localhost:5004/api/Auth/reset-password", request);
+            "http://user-service:5004/api/Auth/reset-password", request);
 
         var content = await response.Content.ReadAsStringAsync();
         return Results.Content(content, "application/json", Encoding.UTF8, (int)response.StatusCode);
@@ -95,7 +95,7 @@ public class AuthEndpointHandlers
     {
         var token = httpRequest.Headers["Authorization"].ToString();
         var request = new HttpRequestMessage(HttpMethod.Delete,
-            "http://localhost:5004/api/Auth/delete-customer-account");
+            "http://user-service:5004/api/Auth/delete-customer-account");
 
         request.Headers.Add("Authorization", token);
         var response = await client.SendAsync(request);
