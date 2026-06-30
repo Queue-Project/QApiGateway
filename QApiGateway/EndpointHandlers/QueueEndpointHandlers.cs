@@ -12,7 +12,7 @@ public class QueueEndpointHandlers
         var token = httpRequest.Headers["Authorization"].ToString();
         var req = new HttpRequestMessage(
             HttpMethod.Get,
-            $"http://localhost:5006/api/Queue/history/customer?pageNumber={pageNumber}"
+            $"http://queue-service:5006/api/Queue/history/customer?pageNumber={pageNumber}"
         );
         req.Headers.Add("Authorization", token);
 
@@ -26,7 +26,7 @@ public class QueueEndpointHandlers
         var token = httpRequest.Headers["Authorization"].ToString();
         var req = new HttpRequestMessage(
             HttpMethod.Get,
-            $"http://localhost:5006/api/Queue/{id}"
+            $"http://queue-service:5006/api/Queue/{id}"
         );
         req.Headers.Add("Authorization", token);
 
@@ -41,7 +41,7 @@ public class QueueEndpointHandlers
         var token = httpRequest.Headers["Authorization"].ToString();
 
 
-        var req = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5006/api/Queue/book");
+        var req = new HttpRequestMessage(HttpMethod.Post, "http://queue-service:5006/api/Queue/book");
         req.Headers.Add("Authorization", token);
         req.Content = new StringContent(
             JsonSerializer.Serialize(request),
@@ -62,7 +62,7 @@ public class QueueEndpointHandlers
     {
         var token = httpRequest.Headers["Authorization"].ToString();
 
-        var req = new HttpRequestMessage(HttpMethod.Put, "http://localhost:5006/api/Queue/cancel/customer");
+        var req = new HttpRequestMessage(HttpMethod.Put, "http://queue-service:5006/api/Queue/cancel/customer");
         req.Headers.Add("Authorization", token);
         req.Content = new StringContent(
             JsonSerializer.Serialize(request),

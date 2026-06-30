@@ -11,7 +11,7 @@ public class ComplaintEndpointsHandlers
     {
         var token = httpRequest.Headers["Authorization"].ToString();
         var request =
-            new HttpRequestMessage(HttpMethod.Post, "http://localhost:5006/api/Complaint/create-complaint");
+            new HttpRequestMessage(HttpMethod.Post, "http://queue-service:5006/api/Complaint/create-complaint");
         request.Headers.Add("Authorization", token);
         request.Content = new StringContent(JsonSerializer.Serialize(createRequest), Encoding.UTF8,
             "application/json");
@@ -27,7 +27,7 @@ public class ComplaintEndpointsHandlers
     {
         var token = httpRequest.Headers["Authorization"].ToString();
         var request = new HttpRequestMessage(HttpMethod.Get,
-            $"http://localhost:5006/api/Complaint/complaint-history/customer?pageNumber={pageNumber}");
+            $"http://queue-service:5006/api/Complaint/complaint-history/customer?pageNumber={pageNumber}");
         request.Headers.Add("Authorization", token);
 
         var response = await client.SendAsync(request);

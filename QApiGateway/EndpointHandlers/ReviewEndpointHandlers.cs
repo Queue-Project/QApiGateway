@@ -10,7 +10,7 @@ public class ReviewEndpointHandlers
         ReviewCreateRequest createRequest)
     {
         var token = httpRequest.Headers["Authorization"].ToString();
-        var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5006/api/Review/create-review");
+        var request = new HttpRequestMessage(HttpMethod.Post, "http://queue-service:5006/api/Review/create-review");
         request.Headers.Add("Authorization", token);
         request.Content = new StringContent(JsonSerializer.Serialize(createRequest),
             Encoding.UTF8,
@@ -27,7 +27,7 @@ public class ReviewEndpointHandlers
     {
         var token = httpRequest.Headers["Authorization"].ToString();
         var request = new HttpRequestMessage(HttpMethod.Get,
-            $"http://localhost:5006/api/Review/review-history/customer?pageNumber={pageNumber}");
+            $"http://queue-service:5006/api/Review/review-history/customer?pageNumber={pageNumber}");
 
         request.Headers.Add("Authorization", token);
 
