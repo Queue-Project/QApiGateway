@@ -17,6 +17,9 @@ builder.Services.AddHttpClient("QueueService",
 builder.Services.AddHttpClient("AggregationService",
     client => { client.BaseAddress = new Uri("http://aggregation-service:5008/"); });
 
+builder.Services.AddHttpClient("QSearchService",
+    client => { client.BaseAddress = new Uri("http://search-service:5088/"); });
+
 
 var app = builder.Build();
 
@@ -31,4 +34,5 @@ app.MapCompanyEndpoints();
 app.MapEmployeeInfoEndpoints();
 app.MapCustomerEndpoints();
 app.MapFavoriteEmployeesEndpoints();
+app.MapSearchEndpoints();
 app.Run();
