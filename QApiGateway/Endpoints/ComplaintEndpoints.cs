@@ -11,6 +11,6 @@ public static class ComplaintEndpoints
     {
         var complaintGroup = app.MapGroup("api/Complaint").WithTags("Complaint");
         complaintGroup.MapPost("create-complaint", ComplaintEndpointsHandlers.CreateComplaintHandler).RequireAuthorization();
-        complaintGroup.MapGet("complaint-history/customer", CompanyEndpointsHandlers.GetCompanyInfoById).RequireAuthorization();
+        complaintGroup.MapGet("complaint-history/customer", ComplaintEndpointsHandlers.GetComplaintHistoryHandler).RequireAuthorization();
     }
 }
