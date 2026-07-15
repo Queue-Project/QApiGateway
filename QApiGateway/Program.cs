@@ -35,4 +35,5 @@ app.MapEmployeeInfoEndpoints();
 app.MapCustomerEndpoints();
 app.MapFavoriteEmployeesEndpoints();
 app.MapSearchEndpoints();
+app.MapRecommendationEndpoints();
 app.Run();
