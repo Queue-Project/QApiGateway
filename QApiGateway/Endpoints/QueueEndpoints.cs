@@ -1,6 +1,3 @@
-using System.Text;
-using System.Text.Json;
-using QApiGateway.DTO.QueueDTO;
 using QApiGateway.EndpointHandlers;
 
 namespace QApiGateway.Endpoints;

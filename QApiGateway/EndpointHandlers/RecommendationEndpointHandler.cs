@@ -45,7 +45,7 @@ public class RecommendationEndpointHandler
         var token = httpRequest.Headers["Authorization"].ToString();
 
         var query = $"?CompanyId={reportRequest.CompanyId}" +
-                    $"?BranchId={reportRequest.BranchId}" +
+                    $"&BranchId={reportRequest.BranchId}" +
                     $"&PageNumber={reportRequest.PageNumber}";
         var request = new HttpRequestMessage(HttpMethod.Get,
             $"http://aggregation-service:5008/api/Recommendation/get-recommended-services{query}");
@@ -63,8 +63,8 @@ public class RecommendationEndpointHandler
         var token = httpRequest.Headers["Authorization"].ToString();
 
         var query = $"?CompanyId={reportRequest.CompanyId}" +
-                    $"?BranchId={reportRequest.BranchId}" +
-                    $"?ServiceId={reportRequest.ServiceId}" +
+                    $"&BranchId={reportRequest.BranchId}" +
+                    $"&ServiceId={reportRequest.ServiceId}" +
                     $"&PageNumber={reportRequest.PageNumber}";
         var request = new HttpRequestMessage(HttpMethod.Get,
             $"http://aggregation-service:5008/api/Recommendation/get-recommended-employees{query}");
