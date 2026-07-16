@@ -49,4 +49,26 @@ public class EmployeeInfoEndpointHandlers
 
         return Results.Content(content, "application/json", Encoding.UTF8, (int)response.StatusCode);
     }
+    
+    public static async Task<IResult> GetEmployeesAvailabilityScheduleHandler(
+        HttpClient client, 
+        HttpRequest httpRequest, 
+        int employeeId, 
+        DateOnly date)
+    {
+        var token = httpRequest.Headers["Authorization"].ToString();
+        var query = $"?employeeId={employeeId}" +
+                    $"&date={date}";
+
+        var request = new HttpRequestMessage(HttpMethod.Get,
+            $"http://aggregation-service:5008/api/AvailabilitySchedule/get-availability-schedule{query}");
+
+        request.Headers.Add("Authorization", token);
+
+        var response = await client.SendAsync(request);
+        var content = await response.Content.ReadAsStringAsync();
+
+        return Results.Content(content, "application/json", Encoding.UTF8, (int)response.StatusCode);
+    }
+    
 }
